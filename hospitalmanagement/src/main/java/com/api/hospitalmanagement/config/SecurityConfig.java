@@ -40,6 +40,7 @@ public class SecurityConfig {
 					.requestMatchers("/api/patient/add").hasAnyAuthority("Patient")
 					.requestMatchers("/api/doctor/getAllPatientbyDocId/{doctorId}").hasAnyAuthority("Doctor")
 					.requestMatchers("/api/appointment/add/{patientId}/{doctorId}").permitAll()
+					.requestMatchers("/api/doctor/add/{userId}").hasAnyAuthority("Doctor")
 				.anyRequest().authenticated()
 			)
 			.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

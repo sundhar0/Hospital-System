@@ -35,6 +35,9 @@ public class DoctorService {
 
 	public String add(int userId, Doctor doctor) throws InvalidIDException {
 		User user = authService.getById(userId);
+		Doctor existingDoc = doctorRepository.findByUser(user);
+		if(existingDoc != null)
+			throw new InvalidIDException("Doctor already exist");
 		doctor.setUser(user);
 		doctorRepository.save(doctor);
 		return "doctor added successfully";

@@ -45,5 +45,7 @@ public class AuthService{
 		User auth1 = authRepository.findByUsername(name);
 		return auth1;
 	}
+	
+	
 
 }
