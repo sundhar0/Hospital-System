@@ -36,7 +36,6 @@ public class DoctorServiceTest {
 
     @BeforeEach
     public void setup() {
-        MockitoAnnotations.openMocks(this);
 
         user = new User();
         user.setUserId(101);
